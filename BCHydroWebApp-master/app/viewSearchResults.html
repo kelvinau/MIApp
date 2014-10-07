@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Search Results</title>
+	  	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	  	<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="bootstrap/bootstrap-select/bootstrap-select.css">
+
+		<script src="js/jquery.min.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+		<script src="bootstrap/bootstrap-select/bootstrap-select.js"></script>
+		<script src="js/purl.js"></script>
+		<script src="js/ViewSearchResults.js"></script>
+
+		<script type="text/javascript">
+			// Used for bootstrap-select to get bootstrap skinned select elements
+			$(document).ready(function(){
+    			$('select').selectpicker();
+
+    			getSearchResults();
+			});
+		</script>
+	</head>
+	<body>
+
+		<div class="page-header">
+			<img src="img/BcHydroLogo.jpg">
+			<br>
+		</div>
+
+		<div class="leftContentHolder container">
+			<h3>Refine Search Results</h3>
+
+			<div id="searchParameters">
+				<h5>By Title</h5>
+                <input id="Title" type="text" class="form-control main-search-bars" placeholder="Search by Title...">
+                
+                <h5>By Upload Date</h5>
+                <input id="SubmittedDate"class="span2 form-control main-search-bars" size="16" type="text" placeholder="Search by Upload Date...">
+
+                <h5>By Original Issue Date</h5>
+                <input id="originalIssueDate"class="span2 form-control main-search-bars" size="16" type="text" placeholder="Search by Original Issue Date...">
+                
+                <h5>By Edit Date</h5>
+                <input id="revisionDate"class="span2 form-control main-search-bars" size="16" type="text" placeholder="Search by Edit Date...">
+
+
+                <h5>By MI Number</h5>
+                <input id="instrucitonNumber" type="text" class="form-control main-search-bars" placeholder="Search by MI Number...">	
+
+                 <h5>By Revision Number</h5>
+                <input id="version" type="number" class="form-control main-search-bars" placeholder="Search by Revision Number...">
+
+                 <h5>By Discipline</h5>
+                <input id="discipline" type="text" class="form-control main-search-bars" placeholder="Search by Discipline...">
+
+                 <h5>By Location</h5>
+                <input disabled id="location" type="text" class="form-control main-search-bars" placeholder="Search by Location...">
+
+                <h5>By Equipment</h5>
+                <input id="equipment" type="text" class="form-control main-search-bars" placeholder="Search by Equipment...">
+            </div>
+            
+  			<br><br>
+
+	  		<div class="btn-group btn-group-lg">
+  				<button type="button" class="btn btn-default">Refine Search</button>
+	  		</div>
+
+			<div class="btn-group btn-group-lg center main-templates-logout-section">
+				<button type="button" onclick="location.href='home.html'"
+						class="btn btn-default main-template-buttons">Main Menu</button>
+		</div>
+
+
+
+		</div>
+
+
+		<div class="rightContentHolder container">
+			<h3>Search Results</h3>
+
+			<div class="panel-group view-template-accordion-cell" id="accordion">
+
+			</div>
+
+			<div class="whitespace"></div>
+		</div>
+
+	</body>
+</html>
+

@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>
+			var questionTypeData;
+			function loadQuestionTypes() {
+				$.ajax({
+					dataType : "json",
+					async : false,
+					url : "https://aws.gursimran.net:8080/questionTypes",
+					success : function(data) {
+						questionTypeData = data;
+						console.log(data);
+					}
+				});
+			}
+
+			function addQuestion(qid) {
+				var html = $('#new_template').html();
+				$('#new_template').html(html + "<div class='qs' id=" + qid + ">" + "Add question type " + qid + getQuestionTemplate() + "</div><br>");
+			}
+
+			function getQuestionTemplate() {
+				return "<div class='question_input'>Question: <input type='text'></input> </div>";
+			}
+		</script>
+		<style>
+			.question_type {
+				border: 1px solid black;
+				width: 300px;
+				height: 50px;
+				margin: 20px;
+			}
+
+			#new_template {
+				border: 1px solid black;
+				width: 300px;
+				min-height: 100px;
+				margin: 20px;
+				float:right;
+				position:absolute;
+				top:0px;
+				left:400px;
+			}
+			
+			#mi_title{
+				margin-bottom: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			loadQuestionTypes();
+
+			console.log(questionTypeData);
+			for (var i = 0; i < questionTypeData.length; i++) {
+				document.write("<div class='question_type' id=" + questionTypeData[i].qid + " onclick='addQuestion(" + questionTypeData[i].qid + ")'> Question Type: " + questionTypeData[i].qid + ": " + questionTypeData[i]['answer-type'] + questionTypeData[i]['question'] + "</div>");
+			}
+		</script>
+
+		<div id='new_template'>
+			<h3>Enter the title for the new MI template</h3>
+			<input type='text' id='mi_title'/>
+		</div>
+		<button id='submit'>
+			Submit MI Template
+		</button>
+
+		<script>
+			$("#submit").click(function() {
+					var completeTemplate = {
+					Title : "",
+					questions : []
+
+				};
+
+				var questions = [];
+				
+				$(".qs").each(function(index) {
+					questions.push({
+						"qid" : this.id,
+						"question" : this.childNodes[1].firstElementChild.value
+					});
+				});
+				// Submit MI template
+				completeTemplate.Title = $("#mi_title").val();
+				console.log("MiTitle:"+$("#mi_title").val());
+				completeTemplate.questions=questions;
+				console.log(completeTemplate);
+				var temp=(JSON.stringify(completeTemplate));
+				$.ajax({
+					type : "POST",
+					contentType : "application/json",
+					url : "https://aws.gursimran.net:8080/addtemplate",
+					dataType :"json",
+					data : temp,
+					
+						
+					
+				});
+				alert("Submitted MI Template");
+			});
+		</script>
+	</body>
+</html>
