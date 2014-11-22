@@ -45,7 +45,7 @@
     [background setImage:[UIImage imageNamed:@"Untitled-1"]];
     
     [self.view insertSubview:background belowSubview:logInButton];
-    _plantData = @[@"Aberfeildie",@"Alouette",@"Ash River",@"Bridge River 1",@"Bridge River 2",@"Cheakamus",@"Clowhom",@"Duncan Dam",@"Elko",@"Falls River",@"GM Shrum",@"Hugh L Keenleyside",@"John Hart",@"Jordan River",@"Kootenay Canal",@"La Joie",@"Ladore",@"Lake Buntzen",@"Mica",@"Peace Canyon",@"Puntledge",@"Revelstoke",@"Ruskin",@"Seton",@"Seven Mile",@"Shuswap",@"Spillimacheen",@"Stave Falls",@"Strathcona",@"Wahleach",@"Walter Hardman"];
+    _plantData = @[@"Aberfeildie",@"Alouette",@"Ash River",@"Bridge River 1",@"Bridge River 2",@"Cheakamus",@"Clowhom",@"Duncan Dam",@"Elko",@"Falls River",@"GM Shrum",@"Hugh L Keenleyside",@"John Hart",@"Jordan River",@"Kootenay Canal",@"La Joie",@"Ladore",@"Lake Buntzen",@"Mica",@"Peace Canyon",@"Puntledge",@"Puntledge",@"Revelstoke",@"Ruskin",@"Seton",@"Seven Mile",@"Shuswap",@"Spillimacheen",@"Stave Falls",@"Strathcona",@"Wahleach",@"Walter Hardman"];
     
     self.plantPicker.dataSource = self;
     self.plantPicker.delegate = self;

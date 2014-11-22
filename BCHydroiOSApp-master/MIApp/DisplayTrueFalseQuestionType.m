@@ -19,8 +19,9 @@
     
     //create true and false options
     //web app doesnt ask for options when adding a true/false question
-    NSString *trueOption = @"True";
-    NSString *falseOption = @"False";
+    // 06/10/2014 Changed True/Fasle to Yes/No by Kelvin
+    NSString *trueOption = @"Yes";
+    NSString *falseOption = @"No";
     NSMutableArray* answersToBeDisplayed = [[NSMutableArray alloc] init];
     [answersToBeDisplayed addObject:trueOption];
     [answersToBeDisplayed addObject:falseOption];
