@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LogInController : UIViewController
+@interface LogInController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
 
 @property (strong, nonatomic) IBOutlet UIButton *logInButton;
@@ -16,5 +16,7 @@
 
 
 - (IBAction)logInButtonPressed:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIPickerView *plantPicker;
 
 @end
